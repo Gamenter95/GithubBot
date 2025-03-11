@@ -1,0 +1,5 @@
+python-telegram-bot==20.8
+requests==2.31.0
+flask==3.0.0
+pygithub==2.1.1
+gunicorn==21.2.0
