@@ -11,6 +11,8 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.utils import executor
 from dotenv import load_dotenv
+import os
+from flask import Flask
 
 # Load environment variables
 load_dotenv()
@@ -197,5 +199,15 @@ async def bot_crash_handler():
 
 # ------------------- Run Bot -------------------
 if __name__ == '__main__':
+    app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 8080))  # Default to 5000
+    app.run(host='0.0.0.0', port=port)
+    
     loop = asyncio.get_event_loop()
     loop.run_until_complete(bot_crash_handler())
