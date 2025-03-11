@@ -3,3 +3,4 @@ requests==2.31.0
 flask==3.0.0
 pygithub==2.1.1
 gunicorn==21.2.0
+aiohttp==3.9.1
